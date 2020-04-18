@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movielist>
+  <movie>
+    <title>Titanic</title>
+    <year>1998</year>
+    <genre>Drama</genre>
+    <cast>Leonardo Di Caprio, Kate Winslet</cast>
+  </movie>
+  <movie>
+    <title>Avengers</title>
+    <year>2012</year>
+    <genre>Action</genre>
+    <cast>Robert D Junior, Chris Evans</cast>
+  </movie>
+  <movie>
+    <title/>
+    <year/>
+    <genre/>
+    <cast/>
+  </movie>
+  <movie>
+    <title/>
+    <year/>
+    <genre/>
+    <cast/>
+  </movie>
+  <movie>
+    <title/>
+    <year/>
+    <genre/>
+    <cast/>
+  </movie>
+</movielist>

@@ -1,0 +1,30 @@
+{
+  "name": "iwa-y3-ca2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "npm": "^6.13.2",
+    "path": "^0.12.7",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.1.0",
+    "xml2js": "^0.4.22",
+    "xslt-processor": "^0.11.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaphaelQSmith/iwa-y3-ca2.git"
+  },
+  "author": "Raphael Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaphaelQSmith/iwa-y3-ca2/issues"
+  },
+  "homepage": "https://github.com/RaphaelQSmith/iwa-y3-ca2#readme"
+}
