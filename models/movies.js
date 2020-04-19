@@ -8,5 +8,4 @@ var movieSchema = new mongoose.Schema({
       dateOfCreation: Date
    });
 
-
    module.exports = mongoose.model('Movie', movieSchema);
