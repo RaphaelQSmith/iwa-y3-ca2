@@ -1,33 +1,42 @@
 var http = require('http'),
+    logger = require("morgan"),
     path = require('path'),
     express = require('express'),
-    fs = require('fs'),
-    xmlParse = require('xslt-processor').xmlParse,
-    xsltProcess = require('xslt-processor').xsltProcess;
-    xml2js = require('xml2js');
+    bodyParser = require("body-parser"),
+    mongoose = require('mongoose'),
+    dotenv = require('dotenv')
+    dotenv.config();
+    // fs = require('fs'),
+    // xmlParse = require('xslt-processor').xmlParse,
+    // xsltProcess = require('xslt-processor').xsltProcess;
+    // xml2js = require('xml2js');
 
+// MongoDB connected 
+mongoose.set('useCreateIndex', true);
+mongoose.connect(
+  process.env.MONGODB_TOKEN,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () =>console.log("Connected to DB")
+);
+    
 var router = express();
-var server = http.createServer(router);
+var port = 3000;
+var movieCtrl = require('./movie-controller');
+
+router.use(logger('dev'));
+router.use(bodyParser.json());
+
+const movieRoute = require('./routes');
+router.use('/movies', movieRoute);
 
 router.use(express.static(path.resolve(__dirname, 'views')));
 router.use(express.urlencoded({extended: true})); 
 router.use(express.json());
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+router.listen(port, function(err){
+    console.log("Listening on Port: " + port)
+});
 
 
 
@@ -110,7 +119,3 @@ router.use(express.json());
 //   deleteJSON(req.body);
 // });
 
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
-    var addr = server.address();
-    console.log('Server is listening at: ', addr.address + ':' + addr.port);
-});
