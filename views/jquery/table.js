@@ -10,12 +10,12 @@ function draw_table()
 			cache: false,
 			success: function (html)
 			{
-				$("#results").append(html);
+                $("#results").append(html);
 				select_row();
 			}
 		});
 	};
-	$.getJSONuncached("/get/html")
+	$.getJSONuncached("/movies")
 };
 
 function select_row()
@@ -35,7 +35,7 @@ function delete_row(mov)
 	{
 		$.ajax(
 		{
-			url: "/post/delete",
+			url: "/movies/:id",
 			type: "POST",
 			data:
 			{

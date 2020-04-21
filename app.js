@@ -12,13 +12,7 @@ var http = require('http'),
     // xml2js = require('xml2js');
 
 // MongoDB connected 
-mongoose.set('useCreateIndex', true);
-mongoose.connect(
-  process.env.MONGODB_TOKEN,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () =>console.log("Connected to DB")
-);
-    
+
 var router = express();
 var port = 3000;
 var movieCtrl = require('./movie-controller');
@@ -27,7 +21,7 @@ router.use(logger('dev'));
 router.use(bodyParser.json());
 
 const movieRoute = require('./routes');
-router.use('/movies', movieRoute);
+router.use('/', movieRoute);
 
 router.use(express.static(path.resolve(__dirname, 'views')));
 router.use(express.urlencoded({extended: true})); 
@@ -37,6 +31,16 @@ router.use(express.json());
 router.listen(port, function(err){
     console.log("Listening on Port: " + port)
 });
+
+mongoose.connect(process.env.MONGODB_TOKEN);
+mongoose.connection.on('error', (err) => { 
+    console.log('Mongodb Error: ', err); 
+    process.exit();
+});
+mongoose.connection.on('connected', () => { 
+    console.log('MongoDB is successfully connected');
+});
+    
 
 
 
