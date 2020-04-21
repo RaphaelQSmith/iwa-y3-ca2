@@ -6,10 +6,6 @@ var http = require('http'),
     mongoose = require('mongoose'),
     dotenv = require('dotenv')
     dotenv.config();
-    // fs = require('fs'),
-    // xmlParse = require('xslt-processor').xmlParse,
-    // xsltProcess = require('xslt-processor').xsltProcess;
-    // xml2js = require('xml2js');
 
 // MongoDB connected 
 
@@ -18,14 +14,16 @@ var port = 3000;
 var movieCtrl = require('./movie-controller');
 
 router.use(logger('dev'));
-router.use(bodyParser.json());
+// router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
 const movieRoute = require('./routes');
 router.use('/', movieRoute);
 
 router.use(express.static(path.resolve(__dirname, 'views')));
-router.use(express.urlencoded({extended: true})); 
-router.use(express.json());
+// router.use(express.json());
+// router.use(express.urlencoded({extended: true})); 
+
 
 
 router.listen(port, function(err){

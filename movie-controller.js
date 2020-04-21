@@ -1,12 +1,19 @@
 var Movie = require('./models/movies');
 
 exports.createMovie = function(req, res){
-    var newMovie = new Movie(req.body);
-    newMovie.save(function(err, movie){
+    console.log(req.body);
+    let newMovie = new Movie({
+        title: req.body.title,
+        year: req.body.year,
+        genre: req.body.genre,
+        cast : req.body.cast
+    });
+    newMovie.save(function(err, movies){
         if(err){
             res.status(400).json(err)
         }
-        res.json(movie);
+        res.redirect("/");
+        console.log(movies);
     })
 }
 
