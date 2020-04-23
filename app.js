@@ -1,6 +1,6 @@
 var http = require('http'),
-    logger = require("morgan"),
-    path = require('path'),
+    logger = require("morgan");
+const path = require('path'),
     express = require('express'),
     bodyParser = require("body-parser"),
     mongoose = require('mongoose'),
@@ -21,7 +21,11 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const movieRoute = require('./routes');
 router.use('/', movieRoute);
 
-router.use(express.static(path.resolve(__dirname, 'views')));
+router.set('views', path.join(__dirname, '/views/'));
+router.set('view engine', 'hbs');
+router.engine('hbs', exphbs({extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/'}))
+
+// router.use(express.static(path.resolve(__dirname, 'views')));
 
 router.listen(port, function(err){
     console.log("Listening on Port: " + port)

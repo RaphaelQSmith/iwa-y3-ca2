@@ -12,19 +12,41 @@ exports.createMovie = function(req, res){
         if(err){
             res.status(400).json(err)
         }
-        res.redirect("/");
+        res.redirect("/movies/list");
         console.log(movies);
     })
 }
 
-exports.getMovies = function(req, res){
-    Movie.find({}, function(err, movies){
-        if(err){
-            res.status(400).json(err)
+exports.getMovies = (req, res)=>{
+    Movie.find((err,docs)=>{
+        if(!err){
+            res.render("employee/list", {
+                list: docs
+            });
         }
-        res.json(movies);
+        else {
+            console.log(err);
+        }
     })
-    }
+}
+
+
+
+
+
+
+// function(req, res){
+//     Movie.find({}, function(err, movies){
+//         if(err){
+//             res.status(400).json(err)
+//         }else{
+//         res.json(movies);
+//         res.render("employee/list", {
+//             list: movies
+//             })
+//         }
+//     })
+//     }
 
 exports.getMovie = function(req, res) {
   Movie.findOne({_id: req.params.id}, function (err, movie) {

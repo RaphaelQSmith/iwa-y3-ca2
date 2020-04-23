@@ -1,0 +1,25 @@
+<table class="table table-hover table-dark" style="margin-bottom: 15%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Cast</th>    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.year}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.cast}}</td>
+                <td>
+                    <a><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
