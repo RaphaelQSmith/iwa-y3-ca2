@@ -65,19 +65,17 @@
                 <input type="text" class="form-control" id="cast" name="cast">
             </div>
              <input type="submit" class="btn btn-dark" value="New">
-             <button  id="delete" class="btn btn-danger">Delete</button>
-                <p class="text-muted">Select a movie to be deleted</p>
-
         </form>
          </div>    
-        
             <div class="col-sm-8">
-                <table
+                <!-- <table
                     id="table"
                     class="table .table-hover table-dark"
                     data-toggle="table"
                     data-click-to-select="true"
                     data-url="/movies">
+                    <thead> -->
+                <!-- <table id="movie_table" class="table .table-hover table-dark">
                     <thead>
                         <tr>
                             <th data-field="state" data-checkbox="true"></th>
@@ -87,26 +85,40 @@
                             <th data-field="cast">Cast</th>
                         </tr>
                     </thead>
-                </table>
-    </div>
-         
-      </div>  
-  </div>
+                </table> -->
 
+    </div>  
+        <div id="results" class="table col-sm-8 mt-5"></div>
+    </div>
+
+
+
+            <div class="col-sm-12">
+                <button  id="delete" style="margin-bottom: 10px" class="btn btn-danger">Delete</button>
+                <p class="text-muted">Select a movie to be deleted</p>
+            </div>
+        </div>
+      </div>     
+  </div>
   <footer class="footer">
       <div class="container">
-        <span class="text-center fixed-bottom bg-dark text-light">Created by Raphael Smith &copy; 2020</span>
+        <span style="padding-top: 10px" class="text-center fixed-bottom bg-dark text-light">Created by Raphael Smith &copy; 2020</span>
       </div>
     </footer>
 
   <!-- Bootstrap core JavaScript -->
 
   <script src="jquery/jquery.min.js"></script>
+    <script src="jquery/table.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <!-- <script src="jquery/table.js"></script> -->
+  
+
 
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 
 </body>
 
 </html>
+
+
+
