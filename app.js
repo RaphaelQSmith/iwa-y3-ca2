@@ -10,7 +10,7 @@ const path = require('path'),
 const exphbs = require('express-handlebars');
 
 var router = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 var movieCtrl = require('./movie-controller');
 
