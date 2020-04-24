@@ -52,8 +52,10 @@ exports.updateMovie = function(req, res) {
 exports.deleteMovie = function(req, res) {
   Movie.findByIdAndRemove(req.params.id, function (err, movie) {
     if (err) {
-      res.status(400).json(err);
+    //   res.status(400).json(err);
+      res.redirect('/movies/list');
     } 
-    res.json(movie);
-  }); 
+    //   res.json(movie);
+      res.redirect('/movies/list');
+  });   
 };
