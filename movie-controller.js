@@ -13,12 +13,10 @@ exports.createMovie = function(req, res){
             res.status(400).json(err)
         }
         res.redirect("/movies/list");
-        console.log(movies);
-    })
-}
+})}
 
 exports.getMovies = (req, res)=>{
-    Movie.find((err,docs)=>{
+    Movie.find((err, docs)=>{
         if(!err){
             res.render("employee/list", {
                 list: docs
@@ -30,40 +28,25 @@ exports.getMovies = (req, res)=>{
     })
 }
 
-
-
-
-
-
-// function(req, res){
-//     Movie.find({}, function(err, movies){
-//         if(err){
-//             res.status(400).json(err)
-//         }else{
-//         res.json(movies);
-//         res.render("employee/list", {
-//             list: movies
-//             })
-//         }
-//     })
-//     }
-
 exports.getMovie = function(req, res) {
   Movie.findOne({_id: req.params.id}, function (err, movie) {
     if (err) {
       res.status(400).json(err);
     } 
-    res.json(movie);
+    res.render('employee/addOrEdit',{
+        viewTitle: 'Change movie info',
+        item: movie 
+    })
   }); 
 };
 
 exports.updateMovie = function(req, res) {
-  User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true},function (err, user) {
+  Movie.findOneAndUpdate({_id: req.body._id}, req.body, {new: true},function (err, movie) {
     if (err) {
       res.status(400).json(err);
     } 
-    res.json(user);
-  }); 
+    res.redirect("/movies/list");
+}); 
 };
 
 exports.deleteMovie = function(req, res) {
