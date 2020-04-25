@@ -1,3 +1,4 @@
+{{!-- create table line by line --}}
 <p align="right">
     <a class="btn btn-danger" href="/">Add</a>
 </p>
@@ -12,12 +13,14 @@
         </tr>
     </thead>
     <tbody>
+    {{!-- iterates over movie list --}}
         {{#each list}}
             <tr>
                 <td>{{this.title}}</td>
                 <td>{{this.year}}</td>
                 <td>{{this.genre}}</td>
                 <td>{{this.cast}}</td>
+                {{!-- creates edit and delete buttons --}}
                 <td>
                     <a href="/movies/{{this._id}}"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>
                     <a href="/movies/del/{{this._id}}" onclick="return confirm('This action is irreversible...')"><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i></a>
