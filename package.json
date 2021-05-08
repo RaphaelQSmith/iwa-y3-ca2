@@ -10,7 +10,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^3.0.0",
     "fs": "^0.0.1-security",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.7",
     "heroku": "^7.39.5",
     "http": "0.0.1-security",
     "jquery": "^3.5.0",
